@@ -106,7 +106,7 @@ def processRecords(records, client, streamName):
 def lambda_handler(event, context):
     logger.debug(f"Event: {event}")
     logger.info(f"Start processing event records.")
-    streamName = os.environ['DELIVERY_STREAM_NAME']
+    streamName = os.environ['DATA_STREAM_NAME']
     client = boto3.client('firehose')
     records = processRecords(event['Records'], client, streamName)
     logger.info(f"Finished processing event records.")    
